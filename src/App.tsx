@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Todolist from './components/Todolist';
 
 function App() {
     const data1 = {
@@ -118,7 +119,8 @@ function App() {
 
     return (
         <div className="App">
-
+            <Todolist title={data1.title} tasks={data1.tasks} students={data1.students} />
+            <Todolist title={data2.title} tasks={data2.tasks} students={data2.students} />
         </div>
     );
 }
