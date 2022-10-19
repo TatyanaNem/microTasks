@@ -1,8 +1,16 @@
 import React from 'react';
 import './App.css';
 import Todolist from './components/Todolist';
+import Cars from './components/Cars';
 
 function App() {
+    const topCars = [
+        {manufacturer:'BMW', model:'m5cs'},
+        {manufacturer:'Mercedes', model:'e63s'},
+        {manufacturer:'Audi', model:'rs6'}
+    ]
+
+
     const data1 = {
         title: "What to do",
         tasks: [
@@ -119,6 +127,7 @@ function App() {
 
     return (
         <div className="App">
+            <Cars cars={topCars} />
             <Todolist title={data1.title} tasks={data1.tasks} students={data1.students} />
             <Todolist title={data2.title} tasks={data2.tasks} students={data2.students} />
         </div>

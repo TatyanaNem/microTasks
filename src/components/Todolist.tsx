@@ -27,9 +27,9 @@ const Todolist = (props: DataType) => {
                 })}
             </ul>
             <ol className="todolist__students">
-                {props.students.map(el => {
+                {props.students.map((el, index) => {
                     return (
-                            <li className="todolist__item">{el}</li>
+                            <li key={index} className="todolist__item">{el}</li>
                     )
                 })}
             </ol>
