@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Todolist from './components/Todolist';
 import Cars from './components/Cars';
+import {Button} from './components/Button';
 
 function App() {
     const topCars = [
@@ -9,7 +10,6 @@ function App() {
         {manufacturer:'Mercedes', model:'e63s'},
         {manufacturer:'Audi', model:'rs6'}
     ]
-
 
     const data1 = {
         title: "What to do",
@@ -125,8 +125,23 @@ function App() {
         ]
     }
 
+    const  button1Foo = (subscriber: string) => {
+        console.log(subscriber)
+    }
+
+    const  button2Foo = (subscriber: string) => {
+        console.log(subscriber)
+    }
+
+    const button3foo = () => {
+        console.log('Im stupid button')
+    }
+
     return (
         <div className="App">
+            <Button name={'MyYoutubeChannel-1'} callBack={()=> button1Foo('Im Vasya')}/>
+            <Button name={'MyYoutubeChannel-2'} callBack={() => button2Foo('Im Ivan')}/>
+            <Button name={'stupid BUTTON'} callBack={button3foo} />
             <Cars cars={topCars} />
             <Todolist title={data1.title} tasks={data1.tasks} students={data1.students} />
             <Todolist title={data2.title} tasks={data2.tasks} students={data2.students} />
