@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Todolist from './components/Todolist';
 import Cars from './components/Cars';
@@ -137,8 +137,13 @@ function App() {
         console.log('Im stupid button')
     }
 
+    let [a, setA] = useState(1);
+
     return (
         <div className="App">
+            <h1>{a}</h1>
+            <Button name={'Increase a'} callBack={() => setA(a += 1)} />
+            <Button name={'Zero a'} callBack={() => setA(a = 0)} />
             <Button name={'MyYoutubeChannel-1'} callBack={()=> button1Foo('Im Vasya')}/>
             <Button name={'MyYoutubeChannel-2'} callBack={() => button2Foo('Im Ivan')}/>
             <Button name={'stupid BUTTON'} callBack={button3foo} />
