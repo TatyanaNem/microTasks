@@ -4,6 +4,8 @@ import Todolist from './components/Todolist';
 import Cars from './components/Cars';
 import {Button} from './components/Button';
 import {MoneyFilter} from './components/MoneyFilter';
+import FullInput from './components/FullInput';
+import {Input} from './components/Input';
 
 function App() {
     const topCars = [
@@ -151,8 +153,35 @@ function App() {
         { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
     ])
 
+    //INPUT data
+    let [message, setMessage] = useState([
+        {message: 'message1'},
+        {message: 'message2'},
+        {message: 'message3'}
+    ])
+
+    const addMessage = (title: string) => {
+        let newMessage = {message: title}
+        setMessage([newMessage, ...message])
+    }
+
+    let [title, setTitle] = useState('')
+
+    const onClickButtonHandler = () => {
+        addMessage(title)
+        setTitle('')
+    }
+
     return (
         <div className="App">
+            <Input title={title} setTitle={setTitle}/>
+            <Button name={'+'} callBack={onClickButtonHandler} />
+            {message.map(el => {
+                return (
+                    <div>{el.message}</div>
+                )
+            })}
+            <FullInput messages={message} addMessage={addMessage} />
             <MoneyFilter money={money}/>
             <h1>{a}</h1>
             <Button name={'Increase a'} callBack={() => setA(a += 1)} />
